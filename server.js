@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 var db;
 var localMongoURI;
 // To run app locally, uncomment this
-localMongoURI =  'mongodb://heroku_tt5rc4dv:87adfvn8oo7rc7dhitv5mcdql4@ds151137.mlab.com:51137/heroku_tt5rc4dv';
+// localMongoURI =  'run heroku config';
 // Run heroku open to run the app on heroku
 if (!localMongoURI) {
   localMongoURI =  process.env.MONGODB_URI;
