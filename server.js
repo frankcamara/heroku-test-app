@@ -14,9 +14,16 @@ app.use(bodyParser.json());
 // database connection callback to reuse the
 // connection pool in your app.
 var db;
+var localMongoURI;
+// To run app locally, uncomment this
+localMongoURI =  'mongodb://heroku_tt5rc4dv:87adfvn8oo7rc7dhitv5mcdql4@ds151137.mlab.com:51137/heroku_tt5rc4dv';
+// Run heroku open to run the app on heroku
+if (!localMongoURI) {
+  localMongoURI =  process.env.MONGODB_URI;
+}
 
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+mongodb.MongoClient.connect(localMongoURI, function (err, database) {
   if (err) {
     console.log(err);
     process.exit(1);
